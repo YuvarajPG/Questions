@@ -1,21 +1,44 @@
-import "../styles/SVG.css";
-import BlueBtn from '../components/buttons/greenBtn'
-import Link from 'next/link'
+"use client";
+import { useState, useEffect } from "react";
+import Homepage from "../components/Homepage";
+import Question from "../components/Question";
+import Button from "../components/ui/button";
+import UnderConstruction from "../components/underConstruction";
 
-const Home = () => {
-  return (
-    <>
-      <div className=' flex flex-col justify-center items-center bg-linear-to-b from-[#004E92] to-[#001452] gap-6 min-[320px]:min-h-[90vh] min-w-[320px]:min-h-[100vh]'>
-        <p className=' text-6xl text-white'>welcome</p>
-        <p className=' text-2xl text-white'>To my website</p>
-        <div className=' items-center'>
-          <Link href={'/login'}>
-            <BlueBtn input={'Login'} />
-          </Link>
-        </div>
-      </div>
-    </>
-  )
+export default function Home() {
+    const [mounted, setMounted] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isUnderConstruction, setIsUnderConstruction] = useState(true);
+
+    useEffect(() => {
+        setMounted(true);
+        const saved = localStorage.getItem("isLoggedIn");
+        setIsLoggedIn(saved === "true");
+    }, []);
+
+    useEffect(() => {
+        const underConstructionFlag = localStorage.getItem(
+            "isUnderConstruction"
+        );
+        setIsUnderConstruction(underConstructionFlag === "true");
+        // Logic to handle under construction state if needed
+    }, []);
+
+    if (!mounted) {
+        return <Homepage />; // server-safe rendering
+    }
+
+    return (
+        <>
+            {isUnderConstruction ? (
+                <UnderConstruction />
+            ) : isLoggedIn ? (
+                <>
+                    <Question />
+                </>
+            ) : (
+                <Homepage />
+            )}
+        </>
+    );
 }
-
-export default Home

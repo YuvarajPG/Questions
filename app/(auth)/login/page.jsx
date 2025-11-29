@@ -1,46 +1,47 @@
 "use client";
-import Button from "../../../components/buttons/greenBtn";
+import Button from "../../../components/ui/button.jsx";
 import Link from "next/link";
+import InputBox from "../../../components/ui/input.jsx";
+import { useRef } from "react";
+import Input from "../../../components/ui/input.jsx";
+import UnderConstruction from "../../../components/underConstruction.jsx";
 
 const login = () => {
+    const isUnderConstruction = ()=>{
+        return localStorage.getItem("isUnderConstruction") === "true";
+    };
     return (
         <>
-            <div className="bg-auto h-[90vh] flex justify-center items-center ">
-                <form action="" className="">
-                    <div className="relative">
-                        <input
+            {isUnderConstruction ? (
+                <UnderConstruction />
+            ) : (
+                <div className="bg-auto h-[90vh] flex justify-center items-center ">
+                    <form action="" className="">
+                        <label htmlFor="email">email</label>
+                        <InputBox
+                            href={useRef()}
                             type="text"
-                            id="email"
+                            id={"email"}
                             autoComplete="off"
-                            className="peer block w-full px-3 py-2 border rounded bg-amber-100 focus:outline-none focus:ring-3 text-black focus:ring-green-400"
                         />
-                        <label
-                            htmlFor="email"
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-sm transition-all pointer-events-none peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 text-black peer-focus:text-white peer-focus:top-0 peer-focus:-translate-y-6 peer-focus:scale-90 origin-left font-semibold">
-                            email
-                        </label>
-                    </div>
-                    <div className="relative mt-7">
-                        <input
+                        <label htmlFor="password">password</label>
+                        <InputBox
                             type="password"
-                            id="password"
+                            id={"password"}
                             autoComplete="off"
-                            className="peer block w-full px-3 py-2 border rounded bg-amber-100 focus:outline-none focus:ring-3 text-black focus:ring-green-400"
                         />
-
-                        <label
-                            htmlFor="password"
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-sm transition-all pointer-events-none peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:translate-y-0 text-black peer-focus:text-white peer-focus:top-0 peer-focus:-translate-y-6 peer-focus:scale-90 origin-left font-semibold">
-                            password
-                        </label>
-                    </div>
-
-                    <Button input={"Login"} />
-                    <br />
-                    dont have an account? &nbsp;
-                    <Link href={"/signup"}>sign up</Link>
-                </form>
-            </div>
+                        <Button
+                            input={"Login"}
+                            color="green"
+                            margin="marginTop"
+                            type={"submit"}
+                        />
+                        <br />
+                        dont have an account? &nbsp;
+                        <Link href={"/signup"}>sign up</Link>
+                    </form>
+                </div>
+            )}
         </>
     );
 };
