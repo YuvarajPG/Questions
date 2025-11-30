@@ -12,8 +12,8 @@ export default function Home() {
     /*TO SET THE WEB TO UNDER CONSTRUCTION  */
     
     useEffect(() => {
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
-        setIsLoggedIn(isLoggedIn === "true");
+        const isLoggedInFlag = localStorage.getItem("isLoggedIn");
+        setIsLoggedIn(isLoggedInFlag === "true");
     }, []);
     
     useEffect(() => {
@@ -34,7 +34,7 @@ export default function Home() {
             {isUnderConstruction ? (
                 <UnderConstruction />
             ) : (
-                <>{!isLoggedIn ? <Question /> : <Homepage />}</>
+                <>{isLoggedIn ? <Question /> : <Homepage />}</>
             )}
         </>
     );

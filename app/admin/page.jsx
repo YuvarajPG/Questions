@@ -53,9 +53,9 @@ const page = () => {
                     }}
                 />
 
-                {/* <Button
+                <Button
                     color="blue"
-                    input="ONLY DISABLE THE HOMEPAGE"
+                    input="TO SHOW THE HIDE THE QUESTION"  //to show the homepage
                     padding={"padding2"}
                     type="button"
                     width={'fit-content'}
@@ -63,7 +63,18 @@ const page = () => {
                         localStorage.setItem("isLoggedIn", "false");
                         console.log('is logged is false')
                     }}
-                /> */}
+                />
+                <Button
+                    color="disabled" //to show the question
+                    input="TO SHOW THE QUESTION"
+                    padding={"padding2"}
+                    type="button"
+                    width={'fit-content'}
+                    onClick={() => {
+                        localStorage.setItem("isLoggedIn", "true");
+                        console.log('is logged is true')
+                    }}
+                />
             </div>
         </>
     );

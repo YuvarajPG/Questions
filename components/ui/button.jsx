@@ -14,7 +14,8 @@ export const button = tv({
             answer: "bg-teal-500 text-white hover:bg-teal-600  active:text-teal-700 active:text-white",
 
             disabled:
-                "bg-gray-500 text-white hover:bg-gray-600 hover:disabled ",
+                "bg-gray-500 text-white hover:bg-gray-600 active:bg-gray-700 active:text-white",
+
         },
         margin: {
             marginTop: "mt-2",
