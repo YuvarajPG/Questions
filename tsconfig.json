@@ -32,7 +32,7 @@
     "**/*.tsx",
     "app/admin/page.jsx",
     "components/underConstruction.jsx"
-  ],
+, "app/auth/signup/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

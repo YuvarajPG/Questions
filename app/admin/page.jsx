@@ -52,6 +52,18 @@ const page = () => {
                         localStorage.setItem("isUnderConstruction", "false");
                     }}
                 />
+
+                {/* <Button
+                    color="blue"
+                    input="ONLY DISABLE THE HOMEPAGE"
+                    padding={"padding2"}
+                    type="button"
+                    width={'fit-content'}
+                    onClick={() => {
+                        localStorage.setItem("isLoggedIn", "false");
+                        console.log('is logged is false')
+                    }}
+                /> */}
             </div>
         </>
     );

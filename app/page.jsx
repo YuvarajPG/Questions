@@ -6,16 +6,16 @@ import Button from "../components/ui/button";
 import UnderConstruction from "../components/underConstruction";
 
 export default function Home() {
-    const [mounted, setMounted] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    
     const [isUnderConstruction, setIsUnderConstruction] = useState(true);
-
+    /*TO SET THE WEB TO UNDER CONSTRUCTION  */
+    
     useEffect(() => {
-        setMounted(true);
-        const saved = localStorage.getItem("isLoggedIn");
-        setIsLoggedIn(saved === "true");
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        setIsLoggedIn(isLoggedIn === "true");
     }, []);
-
+    
     useEffect(() => {
         const underConstructionFlag = localStorage.getItem(
             "isUnderConstruction"
@@ -23,21 +23,18 @@ export default function Home() {
         setIsUnderConstruction(underConstructionFlag === "true");
         // Logic to handle under construction state if needed
     }, []);
-
-    if (!mounted) {
+    
+    // const [mounted, setMounted] = useState(false);
+    /*  if (!mounted) {
         return <Homepage />; // server-safe rendering
-    }
+    } */
 
     return (
         <>
             {isUnderConstruction ? (
                 <UnderConstruction />
-            ) : isLoggedIn ? (
-                <>
-                    <Question />
-                </>
             ) : (
-                <Homepage />
+                <>{!isLoggedIn ? <Question /> : <Homepage />}</>
             )}
         </>
     );
