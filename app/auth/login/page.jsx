@@ -43,7 +43,7 @@ const login = () => {
                             type={"submit"}
                         />
                         <br />
-                        dont have an account? &nbsp;
+                        don't have an account? &nbsp;
                         <Link href={"/auth/signup"}>sign up</Link>
                     </form>
                 </div>

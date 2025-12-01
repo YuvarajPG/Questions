@@ -20,7 +20,9 @@ export const button = tv({
         margin: {
             marginTop: "mt-2",
             margin: "m-4",
-            "m-2":"m-2"
+            "m-2":"m-2",
+            marginBottom:"mb-5",
+            marginLeft:"ms-2"
         },
         padding: {
             padding: "p-1",

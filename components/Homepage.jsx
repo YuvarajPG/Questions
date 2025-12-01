@@ -17,6 +17,9 @@ const Homepage = () => {
                         type={"button"}
                     />
                 </Link>
+                <Link href="/admin">
+                    <Button color="blue" input='admin' padding='padding' margin="marginLeft" />
+                </Link>
             </div>
         </div>
     );

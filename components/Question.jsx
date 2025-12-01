@@ -1,5 +1,6 @@
 "use client";
 import Button from "../components/ui/button";
+import Link from "next/link";
 
 const question = () => {
     const questionBank = [
@@ -26,6 +27,18 @@ const Question = () => {
                         key={q.id}
                         className="flex h-screen  justify-center text-center items-center flex-col"
                     >
+                        <Link href={"/admin"}>
+                            <Button
+                                margin={"marginBottom"}
+                                input={"admin"}
+                                color={"blue"}
+                            />
+                        </Link>
+                        <p>
+                            To go homepage "click the admin button'
+                            <br />
+                            <p>click "to hide the question"</p>
+                        </p>
                         <div className="bg-[#FFF8D4] p-3.5 shadow-2 shadow-black rounded-2xl">
                             <div className="flex flex-col">
                                 <p className="text-2xl text-black">

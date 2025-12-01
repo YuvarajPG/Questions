@@ -55,7 +55,7 @@ const page = () => {
 
                 <Button
                     color="blue"
-                    input="TO SHOW THE HIDE THE QUESTION"  //to show the homepage
+                    input="TO HIDE THE QUESTION"  //to show the homepage
                     padding={"padding2"}
                     type="button"
                     width={'fit-content'}
