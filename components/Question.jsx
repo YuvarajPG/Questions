@@ -27,7 +27,7 @@ const Question = () => {
                         key={q.id}
                         className="flex h-screen  justify-center text-center items-center flex-col"
                     >
-                        <Link href={"/admin"}>
+                        {/* <Link href={"/admin"}>
                             <Button
                                 margin={"marginBottom"}
                                 input={"admin"}
@@ -38,7 +38,7 @@ const Question = () => {
                             To go homepage "click the admin button'
                             <br />
                             <p>click "to hide the question"</p>
-                        </p>
+                        </p> */}
                         <div className="bg-[#FFF8D4] p-3.5 shadow-2 shadow-black rounded-2xl">
                             <div className="flex flex-col">
                                 <p className="text-2xl text-black">
